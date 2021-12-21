@@ -22,3 +22,13 @@ function each(collection, action) {
     }
 }
 module.exports.each = each;
+
+
+/**
+ * identity
+ * 
+ */
+
+function identity (value) {
+    return value;
+}
