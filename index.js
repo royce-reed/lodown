@@ -6,9 +6,8 @@
  * each: Designed to loop over a collection, Array or Object, and applies the
  * action Function to each value in the collection.
  *
- * @param {Array or Object} collection: The collection over which to iterate.
- * @param {Function} action: The Function to be applied to each value in the
- * collection
+ * @param { Array or Object } collection: The collection over which to iterate.
+ * @param { Function } action: The Function to be applied to each value in the collection.
  */
 
 function each(collection, action) {
@@ -38,10 +37,10 @@ function identity(value) {
 module.exports.identity = identity;
 
 /**
- * typeOf: Function takes in a parameter of any value and returns the type of that value.
+ * typeOf: Function takes in a parameter of any value and returns the type of that value as a string.
  *
  * @param { any value }: Takes in a parameter of value representing any value.
- * @returns { string }: Returns the type of the input as a string.
+ * @returns { String }: Returns the type of the input as a string.
  */
 
 function typeOf(value) {
@@ -58,19 +57,18 @@ function typeOf(value) {
 module.exports.typeOf = typeOf;
 
 /**
- * first: Designed to loop over an Array, and if the Number is a value in the Array,
+ * first: Designed to loop over an Array. If Array is not an array return empty array. If Number is not given or not in the Array, return the first element in the Array. Otherwise, return the first Number items of Array
  *
- * @param { Array }:
- * @param { Number }:
- * @returns {}:
+ * @param { Array }: The array over which to iterate.
+ * @param { Number }: Takes in a parameter of Number representing an index in Array.
+ * @returns { Array or Value }: Returns the first Number items of Array as a new array. If the Number provided is not a number, the first first value in the Array is returned.
  */
 
 function first(array, number) {
-  let emptyArr = [];
+  let emptyArr = [], outputArr = [];
   if (Array.isArray(array) === false || number < 0) return emptyArr;
   if (number === NaN || number === undefined) return array[0];
   if (number > array.length) return array;
-  let outputArr = [];
   for (let i = 0; i < number; i++) {
     outputArr.push(array[i]);
   }
@@ -79,16 +77,19 @@ function first(array, number) {
 module.exports.first = first;
 
 /**
- * last:
- *
+ * last: Designed to loop over an Array. If Array is not an array return empty array. If Number is not given or not in the Array, return the last element in the Array. Otherwise, return the last Number items of Array
+ * 
+ * @param { Array }: The array over which to iterate. 
+ * @param { Number }: Takes in a parameter of Number representing an index in Array.
+ * @returns { Array or Value }: Returns the last Number items of Array as a new array. If the Number provided is not a number, the first first value in the Array is returned.
+ * 
  */
 
 function last(array, number) {
-  let emptyArr = [];
+  let emptyArr = [], outputArr = [];
   if (Array.isArray(array) === false || number < 0) return emptyArr;
   if (number === NaN || number === undefined) return array[array.length - 1];
   if (number > array.length) return array;
-  let outputArr = [];
   for (let i = number; i > 0; i--) {
     outputArr.unshift(array[i]);
   }
@@ -97,8 +98,12 @@ function last(array, number) {
 module.exports.last = last;
 
 /**
- * indexOf:
- *
+ * indexOf: Designed to loop over an Array and return the index of Array that is the first occurrance of Value or return -1 if Value is not in Array
+ * 
+ * @param { Array }: The array over which to iterate. 
+ * @param { Value }: Takes in a parameter of Value representing an element in Array.
+ * @returns { Number }: Return the index of Array that is the first occurrance of Value or return -1 if Value is not in Array.
+ * 
  */
 
 function indexOf(array, value) {
@@ -110,8 +115,12 @@ function indexOf(array, value) {
 module.exports.indexOf = indexOf;
 
 /**
- * contains:
+ * contains: Designed to loop over an Array and returns true if Value is in Array and false if it is not. 
  *
+ * @param { Array }: The array over which to iterate. 
+ * @param { Value }: Takes in a parameter of Value representing an element in Array.
+ * @returns { Boolean }: Returns true if Array contains Value or returns false otherwise.
+ * 
  */
 
 function contains(array, value) {
@@ -123,7 +132,7 @@ module.exports.contains = contains;
  * each: Designed to loop over a collection, Array or Object, and applies the
  * action Function to each value in the collection.
  *
- * @param {Array or Object} collection: The collection over which to iterate.
+ * @param { Array or Object } collection: The collection over which to iterate.
  * @param {Function} action: The Function to be applied to each value in the
  * collection
  */
@@ -142,7 +151,10 @@ function each(collection, action) {
 module.exports.each = each;
 
 /**
- * unique:
+ * unique: Designed to loop over an Array and returns a new array with the duplicates removed.
+ * 
+ * @param { Array }: The array over which to iterate. 
+ * @returns { Array }: Returns a new array of all elemetns from Array with duplicates removed.
  *
  */
 
@@ -158,8 +170,12 @@ function unique(array) {
 module.exports.unique = unique;
 
 /**
- * filter:
- *
+ * filter: Designed to loop over Array, applies the action Function to each value in Array and returns a new array of elements for which calling the action Function returned true.
+ * 
+ * @param { Array }: The array over which to iterate. 
+ * @param { Function } action: The Function to be applied to each value in Array.
+ * @returns { Array }: A new array of elements for which calling the action Function returned true.
+ * 
  */
 
 function filter(array, func) {
@@ -172,8 +188,12 @@ function filter(array, func) {
 module.exports.filter = filter;
 
 /**
- * reject:
- *
+ * reject: Designed to loop over Array, applies the action Function to each value in Array and returns a new array of elements for which calling the action Function returned false.
+ * 
+ * @param { Array }: The array over which to iterate. 
+ * @param { Function } action: The Function to be applied to each value in Array.
+ * @returns { Array }: A new array of elements for which calling the action Function returned false.
+ * 
  */
 
 function reject(array, func) {
@@ -186,14 +206,16 @@ function reject(array, func) {
 module.exports.reject = reject;
 
 /**
- * partition:
- *
+ * partition: Designed to loop over Array, applies the action Function to each value in Array and returns an array made up of two sub arrays: one array that contains all the values for which the action Function returned something truthy, and one array that contains all the values for which the action Function returned something falsy.
+ * 
+ * @param { Array }: The array over which to iterate. 
+ * @param { Function } action: The Function to be applied to each value in the collection
+ * @returns { Array }: A new array of 2 sub arrays: one array that contains all the values for which the action Function returned something truthy, and one array that contains all the values for which the action Function returned something falsy.
+ * 
  */
 
 function partition(array, func) {
-  let result = [];
-  let output0 = [];
-  let output1 = [];
+  let result = [], output0 = [], output1 = [];
   for (let i = 0; i < array.length; i++) {
     if (func(array[i], i, array)) output0.push(array[i]);
     else output1.push(array[i]);
@@ -205,8 +227,11 @@ function partition(array, func) {
 module.exports.partition = partition;
 
 /**
- * map:
- *
+ * map: Designed to loop over a collection, Array or Object, and return a new collection which applies the action Function to each value of the input collection. 
+ * 
+ * @param { Array or Object } collection: The collection over which to iterate.
+ * @param { Function } action: The Function to be applied to each value in the collection
+ * @returns { Array or Object }: A new collection which applied the action Function to each value of the inout collection.
  */
 
 function map(collection, func) {
@@ -227,7 +252,11 @@ function map(collection, func) {
 module.exports.map = map;
 
 /**
- * plunk:
+ * plunk: Designed to loop over an array of objects and return an array containing the value of Property for every object element in the input array.
+ * 
+ * @param { Array of Objects }: The array of objects over which to iterate.
+ * @param { Property }: A property of each object element in the input array.
+ * @returns { Array }: An array containing the value of the input property from every object element from the input array. 
  *
  */
 
@@ -237,8 +266,12 @@ function plunk(array, property) {
 module.exports.plunk = plunk;
 
 /**
- * every:
- *
+ * every: Designed to loop over a collection, Array or Object, applies the action Function to each value in collection, and if the return value of calling the action Function for every element is true, return true. If the action Function returns false for at least one element in the input collection, the method returns false. If no action Function is provided, return true if every element is truthy, otherwise return false.
+ * 
+ * @param {Array or Object} collection: The collection over which to iterate.
+ * @param { Function } action: The Function to be applied to each value in the collection.
+ * @returns { Boolean }: If the return value of the action Function for every element of the input collection is true, the method returns true; false otherwise. However, if no action Function is given or does not return a boolean value; return true if every element in the input collection is truthy, and false otherwise.
+ * 
  */
 
 function every(collection, func) {
@@ -266,9 +299,14 @@ function every(collection, func) {
 module.exports.every = every;
 
 /**
- * some:
- *
+ * some: Designed to loop over a collection, Array or Object, applies the action Function to each value in collection, and if the return value of calling the action Function for at least one elements is true, return true. If the action Function returns false for all elements in the input collection, the method returns false. If no action Function is provided, return true if at least one element is truthy, otherwise return false.
+ * 
+ * @param {Array or Object} collection: The collection over which to iterate.
+ * @param { Function } action: The Function to be applied to each value in the collection.
+ * @returns { Boolean }: If the return value of the action Function for at least one element of the input collection is true, the method returns true; false otherwise. However, if no action Function is given or does not return a boolean value; return true if at least one element in the input collection is truthy, and false otherwise.
+ * 
  */
+
 
 function some(collection, func) {
   if (Array.isArray(collection)) {
@@ -295,7 +333,9 @@ module.exports.some = some;
 
 /**
  * reduce:
- *
+ * @param { Array }: The array over which to iterate. 
+ * @param { Function } action: The Function to be applied to each value in the collection
+ * @param { Seed }:
  */
 
 function reduce(array, func, seed) {
