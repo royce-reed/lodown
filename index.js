@@ -41,6 +41,7 @@ module.exports.identity = identity;
  *
  * @param { any value }: Takes in a parameter of value representing any value.
  * @returns { String }: Returns the type of the input as a string.
+ * 
  */
 
 function typeOf(value) {
@@ -332,15 +333,16 @@ function some(collection, func) {
 module.exports.some = some;
 
 /**
- * reduce:
+ * reduce: Designed to loop over an array, calls the action Function for every element in the input array, passing the following arguments: previous result, element, index. The return value of the action Function is used as the "previous result" for the next iteration. On the first iteration, use the Seed value as the previous result. If no Seed value is given, the first element of the input Array as a Seed. After the last iteration, the return value of the action Function is returned in the method.
+ * 
  * @param { Array }: The array over which to iterate. 
  * @param { Function } action: The Function to be applied to each value in the collection
- * @param { Seed }:
+ * @param { Seed }: The intial value to which the action Function is applied.
+ * @returns { Value }: Returns the final value of the action Function.
  */
 
 function reduce(array, func, seed) {
-  let result;
-  let start = 0;
+  let result, start = 0;
   if (seed || seed === 0) result = seed;
   else {
     result = array[0];
@@ -355,7 +357,12 @@ function reduce(array, func, seed) {
 module.exports.reduce = reduce;
 
 /**
- * extend:
+ * extend: Designed to take in multiple Objects, copy properties (in the order they are passed in) to the target object, and then return the target Object.
+ * 
+ * @param { Object }: The target object to which the properties are to be copied.
+ * @param { Object }: The object from which properties are copied.
+ * @param { ...Objects }: Optional additional objects from which properties are copied, in the order they are passed in.
+ * @returns { Object }: Returns the original target object, modified.
  *
  */
 
