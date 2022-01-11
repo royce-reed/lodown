@@ -1,28 +1,5 @@
 "use strict";
 
-// YOU KNOW WHAT TO DO //
-
-/**
- * each: Designed to loop over a collection, Array or Object, and applies the
- * action Function to each value in the collection.
- *
- * @param { Array or Object } collection: The collection over which to iterate.
- * @param { Function } action: The Function to be applied to each value in the collection.
- */
-
-function each(collection, action) {
-  if (Array.isArray(collection)) {
-    for (var i = 0; i < collection.length; i++) {
-      action(collection[i], i, collection);
-    }
-  } else {
-    for (var key in collection) {
-      action(collection[key], key, collection);
-    }
-  }
-}
-module.exports.each = each;
-
 
 /**
  * identity: Function takes in a parameter of any value and returns that value unchanged.
@@ -58,11 +35,11 @@ function typeOf(value) {
 module.exports.typeOf = typeOf;
 
 /**
- * first: Designed to loop over an Array. If Array is not an array return empty array. If Number is not given or not in the Array, return the first element in the Array. Otherwise, return the first Number items of Array
+ * first: Designed to loop over an Array. If the input Array is not an array return empty array. If the input Number is not given or not in the Array, return the first element in the Array. Otherwise, return the first Number items of the input Array.
  *
  * @param { Array }: The array over which to iterate.
- * @param { Number }: Takes in a parameter of Number representing an index in Array.
- * @returns { Array or Value }: Returns the first Number items of Array as a new array. If the Number provided is not a number, the first first value in the Array is returned.
+ * @param { Number }: Takes in a parameter of Number representing an index of the input Array.
+ * @returns { Array or Value }: Returns the first Number items of input Array as a new array. If the Number provided is indeed not a number, the first value in the Array is returned.
  */
 
 function first(array, number) {
@@ -78,11 +55,11 @@ function first(array, number) {
 module.exports.first = first;
 
 /**
- * last: Designed to loop over an Array. If Array is not an array return empty array. If Number is not given or not in the Array, return the last element in the Array. Otherwise, return the last Number items of Array
+ * last: Designed to loop over an Array. If the input Array is not an array return empty array. If the input Number is not given or not in the Array, return the last element in the Array. Otherwise, return the last Number items of the input Array.
  * 
  * @param { Array }: The array over which to iterate. 
- * @param { Number }: Takes in a parameter of Number representing an index in Array.
- * @returns { Array or Value }: Returns the last Number items of Array as a new array. If the Number provided is not a number, the first first value in the Array is returned.
+ * @param { Number }: Takes in a parameter of Number representing an index of the input Array.
+ * @returns { Array or Value }: Returns the last Number items of Array as a new array. If the Number provided is indeed not a number, the first value in the Array is returned.
  * 
  */
 
@@ -99,11 +76,11 @@ function last(array, number) {
 module.exports.last = last;
 
 /**
- * indexOf: Designed to loop over an Array and return the index of Array that is the first occurrance of Value or return -1 if Value is not in Array
+ * indexOf: Designed to loop over an Array and return the index of the input Array that is the first occurrance of Value or return -1 if Value is not in Array.
  * 
  * @param { Array }: The array over which to iterate. 
  * @param { Value }: Takes in a parameter of Value representing an element in Array.
- * @returns { Number }: Return the index of Array that is the first occurrance of Value or return -1 if Value is not in Array.
+ * @returns { Number }: Return the index of the input Array that is the first occurrance of Value or return -1 if Value is not in Array.
  * 
  */
 
@@ -207,7 +184,7 @@ function reject(array, func) {
 module.exports.reject = reject;
 
 /**
- * partition: Designed to loop over Array, applies the action Function to each value in Array and returns an array made up of two sub arrays: one array that contains all the values for which the action Function returned something truthy, and one array that contains all the values for which the action Function returned something falsy.
+ * partition: Designed to loop over Array, applies the action Function to each value of the input Array and returns an array made up of two sub arrays: one array that contains all the values for which the action Function returned something truthy, and one array that contains all the values for which the action Function returned something falsy.
  * 
  * @param { Array }: The array over which to iterate. 
  * @param { Function } action: The Function to be applied to each value in the collection
